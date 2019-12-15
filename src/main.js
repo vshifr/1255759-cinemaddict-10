@@ -8,9 +8,9 @@ import {createPopUp} from './components/menu.js';
 
 
 const CARD_COUNT = 5;
+const EXTRA_CARD_COUNT = 2;
 const headerElement = document.querySelector(`.header`);
 const mainElement = document.querySelector(`.main`);
-const EXTRA_CARD_COUNT = 2;
 const userProfile = document.querySelector(`.header__profile`);
 
 const render = (container, template, place) => {
@@ -24,14 +24,16 @@ render(mainElement, createMainBoard(), `beforeend`);
 
 const filmMainBoard = document.querySelector(`.films-list`);
 const filmExtraBoards = document.querySelectorAll(`.films-list--extra`);
+const filmContainers = document.querySelectorAll('.films-list__container');
 
-[...Array(CARD_COUNT)].forEach(() => render(filmMainBoard.querySelector(`div`), createFilmCard(), `beforeend`));
-filmExtraBoards.forEach((section)=> {
-  for (let i = 0; i < EXTRA_CARD_COUNT; i++) {
-    render(section.querySelector(`div`), createFilmCard(), `beforeend`);
-  }
-});
+function addFilmCard (cardcount, container) {
+   for (let i=0; i<cardcount; i++) {
+     render(container, createFilmCard(), `beforeend`)
+   }
+}
+
+addFilmCard(CARD_COUNT, filmContainers[0]);
+addFilmCard(EXTRA_CARD_COUNT, filmContainers[1]);
+addFilmCard(EXTRA_CARD_COUNT, filmContainers[2]);
 
 render(filmMainBoard, createShowMoreBtn(), `beforeend`);
-
-
