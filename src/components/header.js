@@ -7,4 +7,4 @@ const createHeaderTemplate = () => {
   `;
 };
 
-export {createHeaderTemplate}
+export {createHeaderTemplate};

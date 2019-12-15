@@ -22,4 +22,4 @@ const createMainBoard = () => {
     `;
 };
 
-export {createMainBoard}
+export {createMainBoard};

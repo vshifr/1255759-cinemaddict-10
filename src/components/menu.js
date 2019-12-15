@@ -11,4 +11,4 @@ const createMenu = () => {
 };
 
 
-export {createMenu}
+export {createMenu};

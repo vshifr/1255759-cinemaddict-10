@@ -8,4 +8,4 @@ const createFilters = () => {
   `;
 };
 
-export {createFilters}
+export {createFilters};
