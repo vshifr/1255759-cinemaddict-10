@@ -24,16 +24,12 @@ render(mainElement, createMainBoard(), `beforeend`);
 
 const filmMainBoard = document.querySelector(`.films-list`);
 const filmExtraBoards = document.querySelectorAll(`.films-list--extra`);
-const filmContainers = document.querySelectorAll('.films-list__container');
 
-function addFilmCard (cardcount, container) {
-   for (let i=0; i<cardcount; i++) {
-     render(container, createFilmCard(), `beforeend`)
-   }
-}
-
-addFilmCard(CARD_COUNT, filmContainers[0]);
-addFilmCard(EXTRA_CARD_COUNT, filmContainers[1]);
-addFilmCard(EXTRA_CARD_COUNT, filmContainers[2]);
+const renderFilmCards = (cardCount, parent) => {
+  const container = parent.querySelector(`.films-list__container`);
+  [...Array(cardCount)].forEach(() => render(container, createFilmCard(), `beforeend`));
+};
+renderFilmCards(CARD_COUNT, filmMainBoard);
+filmExtraBoards.forEach((section)=> renderFilmCards(EXTRA_CARD_COUNT, section));
 
 render(filmMainBoard, createShowMoreBtn(), `beforeend`);

@@ -4,4 +4,4 @@ const createShowMoreBtn = () => {
 	`;
 };
 
-export {createShowMoreBtn}
+export {createShowMoreBtn};
